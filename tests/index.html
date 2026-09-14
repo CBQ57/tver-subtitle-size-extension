@@ -1,0 +1,19 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><base href="/tests/"><title>TVer 字幕サイズ 動作検証</title>
+<style>
+body { font: 15px sans-serif; padding: 32px; background: #f3f6f4; color: #193d34; }
+.layout { display:flex; gap:32px; align-items:flex-start; } iframe { width:342px; height:440px; border:1px solid #d7e2db; border-radius:14px; }
+.video-js { position:relative; width:640px; height:360px; background:#193d34; overflow:hidden; }
+video { width:100%; height:100%; }
+.vjs-text-track-display { position:absolute; inset:0 0 40px; pointer-events:none; }
+.vjs-text-track-window { position:absolute; inset:0; }
+.vjs-text-track-cue { font-family:sans-serif; line-height:1.55; }
+.vjs-text-track-cue-line { line-height:1.55; }
+.video-js:fullscreen { width:100vw !important; height:100vh !important; }
+#exit-fullscreen { display:none; position:absolute; top:12px; right:12px; }
+.video-js:fullscreen #exit-fullscreen { display:block; }
+.vjs-control-bar { position:absolute; bottom:0; height:35px; color:white; font-size:14px; }
+li { margin:6px 0; } #summary { font-size:22px; font-weight:bold; }
+</style>
+<h1>TVer 字幕サイズ — ローカル検証</h1><p>実番組の再生ではなく、確認済みの字幕レイヤー構造を使ったテストです。</p>
+<div class="layout"><div><div id="player" class="video-js"><video></video><div class="vjs-text-track-display"><div class="vjs-text-track-window" style="position: absolute; inset: 0px;"><div class="vjs-text-track-cue" style="direction: ltr; writing-mode: horizontal-tb; unicode-bidi: plaintext; text-align: center; white-space: pre-line; position: absolute; left: 0px; width: 640px; bottom: 5%; height: 74.4px;"><div class="vjs-text-track-cue-line" style="position: relative; inset: 0px; writing-mode: horizontal-tb; unicode-bidi: plaintext; text-align: center; color: rgb(255, 255, 255); font-size: 24px; fill: rgb(255, 255, 255);"><span style="display: inline-block; background-color: rgba(8, 8, 8, 0.75);">字幕の一行目です。</span></div><div class="vjs-text-track-cue-line" style="position: relative; inset: 0px; writing-mode: horizontal-tb; unicode-bidi: plaintext; text-align: center; color: rgb(255, 255, 255); font-size: 24px; fill: rgb(255, 255, 255);"><span style="display: inline-block; background-color: rgba(8, 8, 8, 0.75);">二行目も中央に表示。</span></div></div></div></div><div class="vjs-control-bar">▶　再生コントロール（変更されません）</div><button id="exit-fullscreen">全画面を終了</button></div><p id="outside">ページの本文（変更されません）</p><button id="fullscreen">全画面で目視確認</button><p id="summary">検証中…</p><ol id="results"></ol></div><iframe src="/demo" title="拡張機能の操作画面"></iframe></div>
+<script src="mock.js"></script><script src="../extension/settings.js"></script><script src="../extension/content.js"></script><script src="test.js"></script>

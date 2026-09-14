@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TVer 字幕サイズ</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="settings.js" defer></script>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <header><img class="badge" src="icons/icon-128.png" width="48" height="48" alt=""><div><h1>TVer 字幕サイズ</h1><p>字幕を、読みやすい大きさに。</p></div></header>
+  <label class="toggle"><span>サイズ変更を有効にする</span><input id="enabled" type="checkbox" checked disabled></label>
+  <main>
+    <div class="size-label"><label for="percent">字幕の倍率</label><output id="value" for="percent">100<span>％</span></output></div>
+    <input id="percent" type="range" min="10" max="200" step="5" value="100" disabled>
+    <div class="range-labels"><span>10％</span><span>200％</span></div>
+    <div class="appearance-row" role="group" aria-labelledby="appearance-label">
+      <span id="appearance-label">背景・文字色</span>
+      <div class="appearance-buttons">
+        <button type="button" data-appearance="standard" aria-label="標準" title="標準" aria-pressed="true" disabled><span aria-hidden="true">Aa</span></button>
+        <button type="button" data-appearance="transparent" aria-label="背景なし" title="背景なし" aria-pressed="false" disabled><span aria-hidden="true">Aa</span></button>
+        <button type="button" data-appearance="yellow-on-black" aria-label="黒背景＋黄色文字" title="黒背景＋黄色文字" aria-pressed="false" disabled><span aria-hidden="true">Aa</span></button>
+      </div>
+    </div>
+    <button id="reset" class="reset" disabled>標準の100％に戻す</button>
+  </main>
+  <p id="status" role="status" aria-live="polite">設定を読み込み中…</p>
+  <footer>TVerで番組を再生し、<b>CCをオン</b>にしてください。<br>映像に焼き込まれたテロップは変更できません。<br><span>非公式拡張機能 · 設定はこのブラウザに保存</span></footer>
+</body>
+</html>
+
